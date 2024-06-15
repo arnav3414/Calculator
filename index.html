@@ -15,7 +15,7 @@ body {
     background-color: #f0f0f0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-image: url('./bg.jpg'); 
-    background-size:cover;
+    background-size: cover;
     background-position: center;
 }
 
@@ -92,7 +92,7 @@ body {
     font-size: 36px;
     overflow: hidden;
     white-space: nowrap;
-    animation: typeAnimation 3s steps(20, end);
+    animation: typeAnimation 2s steps(20, end);
     margin-bottom: 20px;
     border-right: 2px solid #000;
     font-family: 'Exo 2', sans-serif; 
@@ -157,7 +157,9 @@ document.addEventListener('DOMContentLoaded', function() {
 const display = document.getElementById('display');
 
 function appendToDisplay(value) {
-    display.value += value;
+    if (display.value.replace(/[^0-9]/g, '').length < 12) { 
+        display.value += value;
+    }
 }
 
 function clearDisplay() {
